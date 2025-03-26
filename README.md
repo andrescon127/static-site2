@@ -36,3 +36,4 @@ A lightweight static site generator using HTML, CSS, JavaScript, and Node.js.
    - Blog index page
    - Contact form
    - Newsletter integration# static-site2
+# static-site2
