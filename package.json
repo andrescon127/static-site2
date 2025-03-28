@@ -1,7 +1,7 @@
 {
   "name": "part-time-youtuber-academy",
   "version": "1.0.0",
-  "homepage": "https://yourusername.github.io/repository-name",
+  "homepage": "https://andrescon123.github.io/static-site2",
   "scripts": {
     "build": "node scripts/build.js",
     "dev": "node scripts/build.js --watch",
