@@ -84,19 +84,15 @@ async function buildPages() {
 }
 
 async function processIndex(indexPath, publicDir) {
-    const content = await fs.readFile(indexPath, 'utf-8');
-    const htmlContent = marked.parse(content);
-    
     // Read the index template
     const indexTemplate = Handlebars.compile(await fs.readFile(
         path.join(__dirname, '../src/templates/index.html'),
         'utf-8'
     ));
     
-    // Replace content in template
+    // Replace content in template with baseUrl
     const finalHtml = indexTemplate({
-        baseUrl: baseUrl,
-        // ... any other template data
+        baseUrl: process.env.NODE_ENV === 'production' ? '/static-site2' : ''
     });
     
     await fs.writeFile(path.join(publicDir, 'index.html'), finalHtml);
