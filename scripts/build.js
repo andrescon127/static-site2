@@ -84,18 +84,28 @@ async function buildPages() {
 }
 
 async function processIndex(indexPath, publicDir) {
-    // Read the index template
-    const indexTemplate = Handlebars.compile(await fs.readFile(
-        path.join(__dirname, '../src/templates/index.html'),
-        'utf-8'
-    ));
-    
-    // Replace content in template with baseUrl
-    const finalHtml = indexTemplate({
-        baseUrl: process.env.NODE_ENV === 'production' ? '/static-site2' : ''
-    });
-    
-    await fs.writeFile(path.join(publicDir, 'index.html'), finalHtml);
+    try {
+        // Read the index template
+        const indexTemplate = Handlebars.compile(await fs.readFile(
+            path.join(__dirname, '../src/templates/index.html'),
+            'utf-8'
+        ));
+        
+        // Create the HTML with the correct baseUrl
+        const finalHtml = indexTemplate({
+            baseUrl: process.env.NODE_ENV === 'production' ? '/static-site2' : ''
+        });
+        
+        // Write the file
+        await fs.writeFile(path.join(publicDir, 'index.html'), finalHtml);
+        
+        // Log for debugging
+        console.log('Base URL used:', process.env.NODE_ENV === 'production' ? '/static-site2' : '');
+        console.log('Index file written to:', path.join(publicDir, 'index.html'));
+    } catch (error) {
+        console.error('Error processing index:', error);
+        throw error;
+    }
 }
 
 async function processDirectory(dirPath, type, template, excludeFiles = []) {
