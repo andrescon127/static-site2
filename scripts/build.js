@@ -10,6 +10,9 @@ const baseUrl = process.env.NODE_ENV === 'production'
 
 async function buildSite() {
     try {
+        console.log('Building for:', process.env.NODE_ENV);
+        console.log('Using baseUrl:', baseUrl);
+
         const contentDir = path.join(__dirname, '../src/content');
         const publicDir = path.join(__dirname, '../public');
         
@@ -85,23 +88,19 @@ async function buildPages() {
 
 async function processIndex(indexPath, publicDir) {
     try {
-        // Read the index template
         const indexTemplate = Handlebars.compile(await fs.readFile(
             path.join(__dirname, '../src/templates/index.html'),
             'utf-8'
         ));
         
-        // Create the HTML with the correct baseUrl
         const finalHtml = indexTemplate({
-            baseUrl: process.env.NODE_ENV === 'production' ? '/static-site2' : ''
+            baseUrl: baseUrl
         });
         
-        // Write the file
         await fs.writeFile(path.join(publicDir, 'index.html'), finalHtml);
         
-        // Log for debugging
-        console.log('Base URL used:', process.env.NODE_ENV === 'production' ? '/static-site2' : '');
-        console.log('Index file written to:', path.join(publicDir, 'index.html'));
+        const written = await fs.readFile(path.join(publicDir, 'index.html'), 'utf-8');
+        console.log('Verified baseUrl in generated HTML:', written.includes(baseUrl));
     } catch (error) {
         console.error('Error processing index:', error);
         throw error;
