@@ -3,34 +3,463 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
-    <link rel="stylesheet" href="/styles/main.css">
+    <title>Progreso Capital - Direct Marketing Investment Firm</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            height: 160px;  /* Larger base height for SVG */
+            max-height: 20vh;  /* Increased max-height */
+            min-height: 100px;  /* Increased minimum height */
+            width: auto;
+            object-fit: contain;
+            margin: 0.5rem 0;
+            transform: scale(1.15);  /* Slightly larger */
+            transition: height 0.3s ease;
+            padding: 0.5rem;  /* Add some padding */
+        }
+
+        /* Responsive adjustments for the logo */
+        @media (max-width: 768px) {
+            .logo {
+                height: 120px;  /* Increased tablet height */
+                transform: scale(1.05);  /* Slightly scaled on tablet */
+            }
+            
+            nav {
+                padding: 0.25rem 5%;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;  /* Slightly reduce gap on mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                height: 100px;  /* Increased mobile height */
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        main {
+            text-align: center;
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .welcome-text {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #4169e1;
+        }
+
+        .main-headline {
+            font-size: 4rem;
+            color: #4169e1;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .experience-text {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pink-text {
+            color: #ff69b4;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .advantage-section {
+            margin: 4rem 0;
+        }
+
+        .advantage-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .advantage-list {
+            text-align: left;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .advantage-list li {
+            margin-bottom: 1.5rem;
+            list-style: none;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .advantage-list li:before {
+            content: "•";
+            color: #4169e1;
+            position: absolute;
+            left: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #4169e1;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 2rem 0 4rem;
+            transition: background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #3151b7;
+        }
+
+        .final-statement {
+            font-size: 1.8rem;
+            font-weight: bold;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.4;
+            padding: 0 1rem;
+        }
+
+        .stats {
+            font-size: 2rem;
+            font-weight: bold;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        .site-footer {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 4rem 1rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #4169e1;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #4169e1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+
+        /* Add smooth scrolling behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Update section styling */
+        section {
+            padding: 6rem 1rem;
+            border-bottom: none;  /* Remove all section borders */
+        }
+
+        /* Offset anchor links to account for fixed nav */
+        section:target {
+            scroll-margin-top: 80px;
+        }
+
+        /* Add any additional section-specific styles */
+        #about, #leadership, #contact {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            background: #4169e1;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .home-section {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #4169e1;
+            margin-bottom: 2rem;
+        }
+
+        .section-content {
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin: 2rem 0 1rem;
+        }
+    </style>
 </head>
 <body>
-    <nav class="main-nav">
-        <div class="nav-content">
-            <a href="/" class="logo">Your Site</a>
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/blog">Blog</a>
-                <a href="/pages/about.html">About</a>
-                <a href="/pages/faq.html">FAQ</a>
-            </div>
+    <nav>
+        <img src="/images/logo.svg" alt="Progreso Capital Logo" class="logo">
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#leadership">Leadership</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <main>
-        <h1>Welcome to My Site</h1>
-<p>This is the landing page of my simple static site.</p>
-<h2>Recent Posts</h2>
-<p>Check out our <a href="/blog">blog</a> for the latest updates.</p>
-<h2>About Us</h2>
-<p>Learn more <a href="/pages/about.html">about us</a> and our mission. </p>
+    <section id="home" class="home-section">
+        <h1 class="main-headline">Ready for Your Business's Next Chapter?</h1>
+        
+        <p class="experience-text">
+            We acquire and invest in businesses with proven direct response marketing models<br>
+            or those with untapped direct marketing potential.
+        </p>
+        
+        <p class="subtitle">
+            Our focus is simple: we identify winning marketing strategies and double down on them.
+        </p>
 
-    </main>
+        <div class="advantage-section">
+            <h2 class="advantage-title">The Progreso Advantage</h2>
+            <ul class="advantage-list">
+                <li><strong>Direct Marketing Expertise:</strong> With over $250 million in profitable revenue generated through direct response marketing, we know what converts and scales.</li>
+                <li><strong>Operations & Systems Thinking:</strong> Our engineering background brings systematic approaches to business growth—creating processes that turn marketing wins into sustainable business models.</li>
+                <li><strong>Team Building Experience:</strong> We've built global teams of 50+ professionals and understand how to structure organizations for high performance.</li>
+            </ul>
+        </div>
 
-    <footer>
-        <p>&copy; 2024 Your Site. All rights reserved.</p>
+        <p class="final-statement">
+            We don't just provide capital—we bring a battle-tested blueprint for transforming your business using the same approaches that helped us scale multiple brands to 8-figure revenues.
+        </p>
+
+        <a href="#contact" class="cta-button">Contact Us</a>
+    </section>
+
+    <section id="about" class="page-content">
+        <h1 class="section-title">Our Approach</h1>
+        <div class="section-content">
+            <p>At Progreso Capital, we believe in a straightforward investment philosophy: double down on what works.</p>
+            
+            <p>Our expertise lies in direct response marketing—a field where results are measurable, scalable, and repeatable. We seek out businesses that either:</p>
+            
+            <ul class="advantage-list">
+                <li>Already leverage direct response marketing with proven results</li>
+                <li>Have untapped potential for direct marketing implementation</li>
+            </ul>
+
+            <h2>Are You A Good Fit?</h2>
+            <p>We're selective about the businesses we acquire and invest in. Our ideal partners typically have:</p>
+            
+            <ul class="advantage-list">
+                <li><strong>Revenue:</strong> Annual revenue of $500K-$5M with consistent profitability</li>
+                <li><strong>Growth Potential:</strong> Clear opportunities to scale through enhanced marketing</li>
+                <li><strong>Industry Focus:</strong> Consumer goods, information publishing, or marketing technology</li>
+                <li><strong>Management:</strong> Passionate founders who may want to stay involved or are ready for a smooth transition</li>
+                <li><strong>Market Position:</strong> Established customer base with loyalty and repeat business</li>
+                <li><strong>Operations:</strong> Foundational systems in place, even if they need refinement</li>
+            </ul>
+
+            <p>We're not looking for distressed businesses or those requiring complete turnarounds. We seek solid foundations where our direct marketing expertise, systems thinking, and team-building experience can accelerate growth to the next level.</p>
+            
+            <p>We're selective about our investments because we commit fully to the businesses we back. Our goal isn't to build a vast portfolio—it's to create meaningful partnerships where our capital and expertise can drive exceptional growth.</p>
+        </div>
+    </section>
+
+    <section id="leadership" class="page-content">
+        <h1 class="section-title">Leadership</h1>
+        <div class="section-content">
+            <h2>Andrew Contreras, Founder</h2>
+            <p>Having grown up in Oklahoma, the oil and gas business was a natural career path for Andrew – interested in math, science, and money. After studying mechanical engineering at Oklahoma State University, he ventured into the world of drilling rigs, roughnecks, and $100 barrel of oil. Engineering gave him a deep understanding of systems, processes, and structured problem-solving—skills that would later play a crucial role in his success in marketing.</p>
+
+            <p>But something was missing. While the work was financially rewarding, it lacked creativity, and he felt unfulfilled.</p>
+
+            <p>Years later, Andrew stumbled upon copywriting and digital marketing. And everything changed…</p>
+
+            <p>He became obsessed with the process of turning a blank sheet of paper into a compelling offer, persuading total strangers to buy products, and doing all of this from anywhere in the world. Using words to "print money" (from a laptop in Colombia) was like a drug. And he was an addict…</p>
+
+            <p>So, Andrew poured himself into mastering copywriting and digital marketing, which helped generate over $250 million in profitable revenue during the last 8 years. But then, he became a "victim" of his own success. No one ever told him that selling millions of dollars' worth of products online would mean having to actually build a business capable of handling those sales.</p>
+
+            <p>He felt like an oil man all over again… but this time he was drilling wells with no pipelines to move that oil and get it to market.</p>
+
+            <p>Suddenly, copywriting wasn't enough. If Andrew wanted to keep growing the business, he had to become great at hiring, leadership, and management. Fortunately, he had his engineering background to lean on…. He approached scaling a company the same way he once approached complex engineering problems: designing systems, optimizing processes, and structuring teams to perform at a high level.</p>
+
+            <p>That mindset was key in helping Red Hot evolve from a scrappy marketing venture into a high-performing direct-to-consumer powerhouse. Under Andrew's leadership, they built a global team of 50+ people, scaled multiple brands to 8-figure revenues, and created systems and processes that made growth sustainable. And in 2024, Red Hot was acquired.</p>
+
+            <p>Today, Andrew focuses on investing, advising, and exploring new creative ventures through Progreso Capital.</p>
+
+            <h2>Our Approach to Leadership</h2>
+            <p>Andrew's experience building and scaling a marketing-driven business shapes how Progreso Capital works with portfolio companies. The team understands both the creative side of marketing and the systems required to scale those wins into sustainable businesses.</p>
+
+            <p>Progreso Capital provides hands-on investment, working closely with portfolio companies and offering not just capital but strategic guidance based on real-world marketing success.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="page-content">
+        <h1 class="section-title">Let's Connect</h1>
+        <div class="section-content">
+            <p>Interested in working with Progreso Capital? We'd like to hear from you.</p>
+            
+            <p>The best businesses to reach out are those with:</p>
+            <ul class="advantage-list">
+                <li>Proven product-market fit</li>
+                <li>Annual revenue between $500K and $5M</li>
+                <li>Industry focus: consumer goods, information publishing, or marketing technology</li>
+                <li>Clear growth potential through direct marketing channels</li>
+                <li>Leadership open to collaborative growth strategies</li>
+            </ul>
+
+            <div class="contact-form">
+                <form action="/submit" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="company" placeholder="Company Name">
+                    <textarea name="message" placeholder="Tell us about your business" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Progreso Capital</h3>
+                <p>Transforming businesses through proven direct marketing expertise and systematic growth strategies.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#leadership">Leadership</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:andrew@progresocap.com">andrew@progresocap.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Progreso Capital. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html> 

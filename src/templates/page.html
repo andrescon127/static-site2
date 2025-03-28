@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - Progreso Capital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: white;
+        }
+
+        .logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .page-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            color: #4169e1;
+            margin-bottom: 2rem;
+        }
+
+        .page-content h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin: 2rem 0 1rem;
+        }
+
+        .page-content p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .page-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .page-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .page-content a {
+            color: #4169e1;
+            text-decoration: none;
+        }
+
+        .page-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer styles remain the same as index.html */
+        .site-footer {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 4rem 1rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #4169e1;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #4169e1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="/logo.png" alt="Progreso Capital Logo" class="logo">
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/leadership">Leadership</a>
+            <a href="/blog">Blog</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <h1 class="page-title">{{title}}</h1>
+        {{{content}}}
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Progreso Capital</h3>
+                <p>Transforming businesses through proven direct marketing expertise and systematic growth strategies.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/leadership">Leadership</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:andrew@progresocap.com">andrew@progresocap.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Progreso Capital. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
