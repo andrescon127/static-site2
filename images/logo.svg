@@ -1,0 +1,18 @@
+<svg width="480" height="140" viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Logo mark: stylized velocity arrow -->
+  <g transform="translate(20, 40)">
+    <path d="M 0 30 L 50 0 L 40 30 L 50 60 Z" fill="#4169e1"/>
+    <path d="M 10 30 L 60 0 L 50 30 L 60 60 Z" fill="#4169e1" opacity="0.7"/>
+    <path d="M 20 30 L 70 0 L 60 30 L 70 60 Z" fill="#4169e1" opacity="0.5"/>
+  </g>
+
+  <!-- Business name -->
+  <text x="100" y="70" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#4169e1" font-weight="bold">
+    Progreso Cap
+  </text>
+
+  <!-- Tagline -->
+  <text x="100" y="100" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#4169e1">
+    Progress through investing
+  </text>
+</svg>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Part-Time YouTuber Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: white;
+        }
+
+        .logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .blog-list {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            color: #4169e1;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .post-card {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .post-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            color: #4169e1;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .post-excerpt {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: #4169e1;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .site-footer {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 4rem 1rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #4169e1;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #4169e1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="/logo.png" alt="Part-Time YouTuber Academy Logo" class="logo">
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/blog">Blog</a>
+            <a href="/academy">Academy</a>
+            <a href="/login">Course Login</a>
+        </div>
+    </nav>
+
+    <main class="blog-list">
+        <h1 class="page-title">Blog Posts</h1>
+        
+        <div class="posts">
+            <article class="post-card">
+                <h2 class="post-title">Getting Started with YouTube</h2>
+                <div class="post-meta">
+                    <time datetime="Tue Mar 19 2024 19:00:00 GMT-0500 (Colombia Standard Time)">March 19, 2024</time>
+                     • By Your Name
+                </div>
+                <p class="post-excerpt">Learn the essential first steps to starting your YouTube journey</p>
+                <a href="/blog/first-post.html" class="read-more">Read more →</a>
+            </article>
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Part-Time YouTuber Academy</h3>
+                <p>Helping creators build successful YouTube channels while keeping their day jobs.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/academy">Academy</a></li>
+                    <li><a href="/login">Course Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="https://youtube.com">YouTube</a></li>
+                    <li><a href="https://twitter.com">Twitter</a></li>
+                    <li><a href="https://instagram.com">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Part-Time YouTuber Academy. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
