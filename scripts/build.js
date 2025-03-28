@@ -144,16 +144,23 @@ async function copyImages() {
     const publicImagesDir = path.join(__dirname, '../public/images');
     
     try {
+        // Create images directory if it doesn't exist
         await fs.mkdir(publicImagesDir, { recursive: true });
-        const images = await fs.readdir(srcImagesDir);
-        for (const image of images) {
+        
+        // Get all files from source images directory
+        const files = await fs.readdir(srcImagesDir);
+        
+        // Copy each file
+        for (const file of files) {
             await fs.copyFile(
-                path.join(srcImagesDir, image),
-                path.join(publicImagesDir, image)
+                path.join(srcImagesDir, file),
+                path.join(publicImagesDir, file)
             );
+            console.log(`Copied image: ${file}`);
         }
     } catch (error) {
-        if (error.code !== 'ENOENT') throw error;
+        console.error('Error copying images:', error);
+        throw error;
     }
 }
 
