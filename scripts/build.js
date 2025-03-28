@@ -88,13 +88,15 @@ async function processIndex(indexPath, publicDir) {
     const htmlContent = marked.parse(content);
     
     // Read the index template
-    const indexTemplate = await fs.readFile(
+    const indexTemplate = Handlebars.compile(await fs.readFile(
         path.join(__dirname, '../src/templates/index.html'),
         'utf-8'
-    );
+    ));
     
     // Replace content in template
-    const finalHtml = indexTemplate.replace('{{content}}', htmlContent);
+    const finalHtml = indexTemplate({
+        baseUrl: baseUrl
+    });
     
     await fs.writeFile(path.join(publicDir, 'index.html'), finalHtml);
 }
