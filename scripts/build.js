@@ -4,6 +4,10 @@ const matter = require('gray-matter');
 const { marked } = require('marked');
 const Handlebars = require('handlebars');
 
+const baseUrl = process.env.NODE_ENV === 'production' 
+  ? '/static-site2'
+  : '';
+
 async function buildSite() {
     try {
         const contentDir = path.join(__dirname, '../src/content');
@@ -59,7 +63,8 @@ async function buildPages() {
             // Generate the HTML
             const html = template({
                 ...data,
-                content: htmlContent
+                content: htmlContent,
+                baseUrl: baseUrl
             });
             
             // Create the output path
@@ -413,7 +418,8 @@ async function buildBlog() {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric'
-                    })
+                    }),
+                    baseUrl: baseUrl
                 });
                 
                 const outputPath = `public/blog/${slug}.html`;
