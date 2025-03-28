@@ -85,14 +85,24 @@ async function processDirectory(dirPath, type, template, excludeFiles = []) {
 }
 
 async function copyStyles() {
-    const srcStylesDir = path.join(__dirname, '../src/styles');
-    const publicStylesDir = path.join(__dirname, '../public/styles');
-    
-    await fs.mkdir(publicStylesDir, { recursive: true });
-    await fs.copyFile(
-        path.join(srcStylesDir, 'main.css'),
-        path.join(publicStylesDir, 'main.css')
-    );
+    try {
+        const srcStylesDir = path.join(__dirname, '../src/styles');
+        const publicStylesDir = path.join(__dirname, '../public/styles');
+        
+        // Create styles directory if it doesn't exist
+        await fs.mkdir(publicStylesDir, { recursive: true });
+        
+        // Copy CSS file
+        await fs.copyFile(
+            path.join(srcStylesDir, 'main.css'),
+            path.join(publicStylesDir, 'main.css')
+        );
+        
+        console.log('Styles copied successfully');
+    } catch (error) {
+        console.error('Error copying styles:', error);
+        throw error;
+    }
 }
 
 async function copyImages() {
