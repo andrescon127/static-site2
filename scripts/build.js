@@ -95,7 +95,8 @@ async function processIndex(indexPath, publicDir) {
     
     // Replace content in template
     const finalHtml = indexTemplate({
-        baseUrl: baseUrl
+        baseUrl: baseUrl,
+        // ... any other template data
     });
     
     await fs.writeFile(path.join(publicDir, 'index.html'), finalHtml);
@@ -147,16 +148,20 @@ async function copyImages() {
         // Create images directory if it doesn't exist
         await fs.mkdir(publicImagesDir, { recursive: true });
         
+        // Log directories for debugging
+        console.log('Source images directory:', srcImagesDir);
+        console.log('Public images directory:', publicImagesDir);
+        
         // Get all files from source images directory
         const files = await fs.readdir(srcImagesDir);
+        console.log('Found image files:', files);
         
         // Copy each file
         for (const file of files) {
-            await fs.copyFile(
-                path.join(srcImagesDir, file),
-                path.join(publicImagesDir, file)
-            );
-            console.log(`Copied image: ${file}`);
+            const srcPath = path.join(srcImagesDir, file);
+            const destPath = path.join(publicImagesDir, file);
+            await fs.copyFile(srcPath, destPath);
+            console.log(`Copied image from ${srcPath} to ${destPath}`);
         }
     } catch (error) {
         console.error('Error copying images:', error);
