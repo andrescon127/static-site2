@@ -61,6 +61,7 @@ nav {
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1.5rem;
+    font-weight: 800;
 }
 
 .hero p {
@@ -146,20 +147,15 @@ nav {
         gap: 1rem;
     }
     
-    .hero-section {
+    .hero {
         margin: 3rem auto;
     }
     
-    .hero-section h1 {
+    .hero h1 {
         font-size: 2.5rem;
     }
     
-    .hero-subtitle {
-        font-size: 1.25rem;
-    }
-    
-    .primary-button {
-        padding: 1rem 2rem;
+    .hero p {
         font-size: 1.1rem;
     }
 } 
